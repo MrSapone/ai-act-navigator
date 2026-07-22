@@ -281,11 +281,12 @@
     .mm-sources{font-size:12px;color:var(--muted);line-height:1.55;margin:14px 2px 0}
     .mm-sources a{color:var(--accent);text-decoration:none;font-weight:500}
 
-    /* cue "Inizia a compilare" */
-    .scroll-cue{display:flex;flex-direction:column;align-items:center;gap:7px;margin:28px auto 2px;background:none;border:none;cursor:pointer;font-family:inherit}
-    .scroll-cue span{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.01em}
-    .scroll-cue svg{width:22px;height:22px;color:var(--accent);animation:bob 1.3s ease-in-out infinite}
-    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+    /* hero a tutta altezza + pulsante "Rispondi alle domande" */
+    .sidebar{min-height:100vh;justify-content:center}
+    .scroll-cue{align-self:center;display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:30px 0 2px;background:var(--accent);border:none;border-radius:999px;padding:14px 26px;cursor:pointer;font-family:inherit;color:#fff;box-shadow:0 8px 22px rgba(255,91,26,.28);animation:bob 1.4s ease-in-out infinite}
+    .scroll-cue span{font-size:15px;font-weight:700;color:#fff;letter-spacing:.01em}
+    .scroll-cue svg{width:16px;height:16px;color:#fff}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
   }
 </style>
 
@@ -324,9 +325,9 @@
     <span>Riferimenti rapidi: sanzioni e date chiave</span>
     <span class="ext">↗</span>
   </button>
-    <button class="scroll-cue" onclick="scrollTop()" aria-label="Inizia a compilare">
-      <span>Inizia a compilare</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
+    <button class="scroll-cue" onclick="scrollTop()" aria-label="Rispondi alle domande">
+      <span>Rispondi alle domande</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
     </button>
     </div>
 
