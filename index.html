@@ -253,6 +253,40 @@
   .modal-body .dates div{font-size:14.5px}
   .modal-sources{color:var(--muted);font-size:12.5px;line-height:1.55;margin-top:22px}
   @media(max-width:560px){.modal-body table.san th,.modal-body table.san td{padding:11px 8px}}
+  /* ---------- elementi mobile (nascosti su desktop) ---------- */
+  .hamburger{display:none}
+  .mobile-menu{display:none}
+  .scroll-cue{display:none}
+
+  @media(max-width:860px){
+    /* hero centrato */
+    .side-top{text-align:center}
+    .side-top .badge{margin:0 auto}
+    .subtitle{margin-left:auto;margin-right:auto}
+    /* secondari spostati nel menu hamburger */
+    .sources,.rule,.ref-trigger,.side-bottom{display:none}
+
+    /* pulsante hamburger */
+    .hamburger{display:flex;flex-direction:column;justify-content:center;gap:5px;position:fixed;top:14px;right:14px;z-index:120;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;padding:0 11px}
+    .hamburger span{display:block;height:2px;width:100%;background:var(--txt);border-radius:2px;transition:.2s}
+    .hamburger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.is-open span:nth-child(2){opacity:0}
+    .hamburger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    /* menu a tendina */
+    .mobile-menu{display:block;position:fixed;top:0;left:0;right:0;z-index:110;background:#fff;border-bottom:1px solid var(--line);padding:74px 20px 24px;transform:translateY(-108%);transition:transform .26s ease;box-shadow:0 14px 34px rgba(24,22,18,.14)}
+    .mobile-menu.open{transform:translateY(0)}
+    .mm-item{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 16px;margin-bottom:10px;font-family:inherit;font-size:15px;font-weight:600;color:var(--txt);cursor:pointer;transition:.15s}
+    .mm-item:hover{border-color:var(--accent)}
+    .mm-sources{font-size:12px;color:var(--muted);line-height:1.55;margin:14px 2px 0}
+    .mm-sources a{color:var(--accent);text-decoration:none;font-weight:500}
+
+    /* cue "Inizia a compilare" */
+    .scroll-cue{display:flex;flex-direction:column;align-items:center;gap:7px;margin:28px auto 2px;background:none;border:none;cursor:pointer;font-family:inherit}
+    .scroll-cue span{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.01em}
+    .scroll-cue svg{width:22px;height:22px;color:var(--accent);animation:bob 1.3s ease-in-out infinite}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+  }
 </style>
 
 <!-- PostHog · analitica eventi sui nodi. Incolla la tua Project API Key qui sotto. -->
@@ -266,6 +300,14 @@
 </script>
 </head>
 <body>
+<button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Apri menu"><span></span><span></span><span></span></button>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mm-item" onclick="menuOpen('refModal')">Riferimenti rapidi: sanzioni e date chiave</button>
+  <button class="mm-item" onclick="menuOpen('creditsModal')">Credits</button>
+  <button class="mm-item" onclick="menuOpen('contribModal')">Vuoi aiutarmi a migliorare il sito?</button>
+  <p class="mm-sources">Fonti: Commissione UE — <a href="https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act" target="_blank" rel="noopener">FAQ art. 50</a> (agg. 20/07/2026); testo <a href="https://artificialintelligenceact.eu/article/50/" target="_blank" rel="noopener">art. 50</a> e <a href="https://artificialintelligenceact.eu/article/99/" target="_blank" rel="noopener">art. 99</a>.</p>
+</nav>
+
 <div class="wrap">
   <div class="layout">
   <aside class="sidebar">
@@ -282,6 +324,10 @@
     <span>Riferimenti rapidi: sanzioni e date chiave</span>
     <span class="ext">↗</span>
   </button>
+    <button class="scroll-cue" onclick="scrollTop()" aria-label="Inizia a compilare">
+      <span>Inizia a compilare</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
+    </button>
     </div>
 
     <div class="side-bottom">
@@ -722,7 +768,26 @@ function go(id, idx){
 }
 function goBack(){ if(history.length){ current=history.pop(); render(); scrollTop(); } }
 function restart(){ track("aia_restart", {}); history=[]; current="start"; render(); scrollTop(); }
-function scrollTop(){ window.scrollTo({top:0,behavior:"smooth"}); }
+function scrollTop(){
+  // su mobile àncora al blocco domande (niente salto all'intro); su desktop torna in cima
+  if (window.matchMedia("(max-width:860px)").matches){
+    const m=document.querySelector(".main");
+    if(m){ window.scrollTo({top: Math.max(0, m.getBoundingClientRect().top + window.pageYOffset - 6), behavior:"smooth"}); return; }
+  }
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function toggleMenu(){
+  const m=document.getElementById("mobileMenu"), h=document.getElementById("hamburger");
+  const open=!m.classList.contains("open");
+  m.classList.toggle("open",open); h.classList.toggle("is-open",open);
+  m.setAttribute("aria-hidden", open?"false":"true");
+  document.body.style.overflow=open?"hidden":"";
+}
+function closeMenu(){
+  const m=document.getElementById("mobileMenu"), h=document.getElementById("hamburger");
+  m.classList.remove("open"); h.classList.remove("is-open"); m.setAttribute("aria-hidden","true"); document.body.style.overflow="";
+}
+function menuOpen(id){ closeMenu(); openModal(id); }
 
 function render(){
   const node=NODES[current];
@@ -818,6 +883,7 @@ function closeRef(){ closeModal("refModal"); }
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape"){
     document.querySelectorAll(".modal-overlay.open").forEach(m=>m.classList.remove("open"));
+    closeMenu();
     document.body.style.overflow="";
   }
 });
