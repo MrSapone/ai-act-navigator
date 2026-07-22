@@ -306,7 +306,6 @@
   <button class="mm-item" onclick="menuOpen('refModal')">Riferimenti rapidi: sanzioni e date chiave</button>
   <button class="mm-item" onclick="menuOpen('creditsModal')">Credits</button>
   <button class="mm-item" onclick="menuOpen('contribModal')">Vuoi aiutarmi a migliorare il sito?</button>
-  <p class="mm-sources">Fonti: Commissione UE — <a href="https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act" target="_blank" rel="noopener">FAQ art. 50</a> (agg. 20/07/2026); testo <a href="https://artificialintelligenceact.eu/article/50/" target="_blank" rel="noopener">art. 50</a> e <a href="https://artificialintelligenceact.eu/article/99/" target="_blank" rel="noopener">art. 99</a>.</p>
 </nav>
 
 <div class="wrap">
@@ -325,7 +324,7 @@
     <span>Riferimenti rapidi: sanzioni e date chiave</span>
     <span class="ext">↗</span>
   </button>
-    <button class="scroll-cue" onclick="scrollTop()" aria-label="Rispondi alle domande">
+    <button class="scroll-cue" onclick="scrollToFlow()" aria-label="Rispondi alle domande">
       <span>Rispondi alle domande</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
     </button>
@@ -765,11 +764,11 @@ function go(id, idx){
     track("aia_outcome", payload);
     track("aia_completed", payload); // evento di completamento per il funnel end-to-end
   }
-  history.push(current); current=id; render(); scrollTop();
+  history.push(current); current=id; render(); scrollToFlow();
 }
-function goBack(){ if(history.length){ current=history.pop(); render(); scrollTop(); } }
-function restart(){ track("aia_restart", {}); history=[]; current="start"; render(); scrollTop(); }
-function scrollTop(){
+function goBack(){ if(history.length){ current=history.pop(); render(); scrollToFlow(); } }
+function restart(){ track("aia_restart", {}); history=[]; current="start"; render(); scrollToFlow(); }
+function scrollToFlow(){
   // su mobile àncora al blocco domande (niente salto all'intro); su desktop torna in cima
   if (window.matchMedia("(max-width:860px)").matches){
     const m=document.querySelector(".main");
@@ -813,7 +812,7 @@ function goToStep(i){
   const path=[...history,current];
   history = path.slice(0,i);
   current = path[i];
-  render(); scrollTop();
+  render(); scrollToFlow();
 }
 
 function renderQuestion(node){
