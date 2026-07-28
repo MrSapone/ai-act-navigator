@@ -239,6 +239,15 @@
   .ref-trigger .ext{color:var(--muted-2);font-size:15px;transition:.15s}
   .ref-trigger:hover .ext{color:var(--accent)}
 
+  /* ---------- sponsor ---------- */
+  .sponsor-title{margin:0 0 14px;font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--txt)}
+  .sponsor-row{display:flex;gap:12px;flex-wrap:wrap}
+  .sponsor-card{display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;height:78px;box-sizing:border-box}
+  .sponsor-card img{display:block;max-height:48px;width:auto}
+  .sponsor-side .sponsor-card{background:transparent}
+  a.sponsor-card{text-decoration:none;transition:border-color .15s}
+  a.sponsor-card:hover{border-color:var(--accent)}
+
   .modal-overlay{
     position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
     padding:clamp(16px,4vw,40px);background:rgba(24,22,18,.42);backdrop-filter:blur(3px);
@@ -286,7 +295,11 @@
     .side-top .badge{margin:0 auto}
     .subtitle{margin-left:auto;margin-right:auto}
     /* secondari spostati nel menu hamburger */
-    .sources,.rule,.ref-trigger,.side-bottom{display:none}
+    .sources,.rule,.ref-trigger,.side-bottom,.sponsor-side{display:none}
+
+    /* sponsor nel menu mobile */
+    .mm-sponsor{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+    .mm-sponsor .sponsor-title{margin:0 0 12px}
 
     /* pulsante hamburger */
     .hamburger{display:flex;flex-direction:column;justify-content:center;gap:5px;position:fixed;top:14px;right:14px;z-index:120;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;padding:0 11px}
@@ -329,6 +342,13 @@
   <button class="mm-item" onclick="menuOpen('creditsModal')">Credits</button>
   <button class="mm-item" onclick="menuOpen('privacyModal')">Privacy</button>
   <button class="mm-item" onclick="menuOpen('contribModal')">Vuoi aiutarmi a migliorare il sito?</button>
+  <div class="mm-sponsor">
+    <p class="sponsor-title">Sponsor del progetto</p>
+    <div class="sponsor-row">
+      <a class="sponsor-card" href="https://www.ansmm.it/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored" aria-label="ANSMM — Associazione Nazionale Social Media Manager (apre in una nuova scheda)"><img src="sponsor-ansmm.png" alt="ANSMM — Associazione Nazionale Social Media Manager"></a>
+      <a class="sponsor-card" href="https://www.ots-web.com/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored" aria-label="OTS (apre in una nuova scheda)"><img src="sponsor-ots.png" alt="OTS"></a>
+    </div>
+  </div>
 </nav>
 
 <div class="wrap">
@@ -351,10 +371,18 @@
       <span>Rispondi alle domande</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
     </button>
+
+    <div class="rule"></div>
+    <div class="sponsor-side">
+      <p class="sponsor-title">Sponsor del progetto</p>
+      <div class="sponsor-row">
+        <a class="sponsor-card" href="https://www.ansmm.it/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored" aria-label="ANSMM — Associazione Nazionale Social Media Manager (apre in una nuova scheda)"><img src="sponsor-ansmm.png" alt="ANSMM — Associazione Nazionale Social Media Manager"></a>
+        <a class="sponsor-card" href="https://www.ots-web.com/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored" aria-label="OTS (apre in una nuova scheda)"><img src="sponsor-ots.png" alt="OTS"></a>
+      </div>
+    </div>
     </div>
 
     <div class="side-bottom">
-    <p class="disclaimer-text">Questa guida ha finalità informativa e operativa. Alcuni casi restano difficili da classificare e la norma è ancora in assestamento: non è una sintesi definitiva dell'AI Act né una consulenza legale. Nei casi più esposti, confrontati con un legale prima di pubblicare.</p>
   <footer class="disc">
     <div class="disc-row">
       <button class="credit-link" onclick="openModal('creditsModal')" aria-label="Credits">
