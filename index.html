@@ -245,7 +245,11 @@
   .sponsor-row{display:flex;gap:12px;flex-wrap:wrap}
   .sponsor-card{display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;height:78px;box-sizing:border-box}
   .sponsor-card img{display:block;max-height:48px;width:auto}
-  .sponsor-side .sponsor-card{background:transparent}
+  .sponsor-side .sponsor-title{font-size:18px;font-weight:400;font-style:italic;color:var(--muted);letter-spacing:0;margin:0 0 22px}
+  .sponsor-side .sponsor-row{gap:20px;align-items:center}
+  .sponsor-side .sponsor-card{background:transparent;border:none;border-radius:0;padding:0;height:auto}
+  .sponsor-side .sponsor-card img{max-height:52px}
+  .sponsor-div{width:1px;height:50px;background:var(--line-2);flex:none}
   a.sponsor-card{text-decoration:none;transition:border-color .15s}
   a.sponsor-card:hover{border-color:var(--accent)}
 
@@ -260,6 +264,9 @@
   .pill-accent .ext{color:#fff}
   .pill-accent:hover{background:var(--orange);border-color:var(--orange)}
   .pill-accent:hover .ext{color:#fff}
+  .action-sm{margin-top:12px}
+  .pill-sm{font-size:12.5px;padding:9px 15px;gap:7px}
+  .pill-sm .ext{font-size:13px}
   a.mm-item{text-decoration:none}
 
   /* ---------- footer sidebar (voci testuali) ---------- */
@@ -390,6 +397,11 @@
     <button class="pill-btn" onclick="openRef()"><span>Sanzioni e date chiave</span><span class="ext">↗</span></button>
     <a class="pill-btn pill-accent" href="/blog/"><span>Blog</span><span class="ext">↗</span></a>
   </div>
+  <div class="action-row action-sm">
+    <button class="pill-btn pill-sm" onclick="openModal('creditsModal')"><span>Credits</span><span class="ext">↗</span></button>
+    <button class="pill-btn pill-sm" onclick="openModal('privacyModal')"><span>Privacy</span><span class="ext">↗</span></button>
+    <button class="pill-btn pill-sm" onclick="openModal('contribModal')"><span>Feedback</span><span class="ext">↗</span></button>
+  </div>
     <button class="scroll-cue" onclick="scrollToFlow()" aria-label="Rispondi alle domande">
       <span>Rispondi alle domande</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
@@ -400,20 +412,9 @@
       <p class="sponsor-title">Sponsor del progetto</p>
       <div class="sponsor-row">
         <a class="sponsor-card" href="https://www.ansmm.it/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored" aria-label="ANSMM — Associazione Nazionale Social Media Manager (apre in una nuova scheda)"><img src="sponsor-ansmm.png" alt="ANSMM — Associazione Nazionale Social Media Manager"></a>
+        <span class="sponsor-div" aria-hidden="true"></span>
         <a class="sponsor-card" href="https://www.ots-web.com/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored" aria-label="OTS (apre in una nuova scheda)"><img src="sponsor-ots.png" alt="OTS"></a>
       </div>
-    </div>
-
-    <div class="side-bottom">
-  <footer class="disc">
-    <nav class="disc-links">
-      <button class="disc-link" onclick="openModal('creditsModal')">Credits</button>
-      <span class="disc-sep" aria-hidden="true">·</span>
-      <button class="disc-link" onclick="openModal('privacyModal')">Privacy</button>
-      <span class="disc-sep" aria-hidden="true">·</span>
-      <button class="disc-link" onclick="openModal('contribModal')">Feedback</button>
-    </nav>
-  </footer>
     </div>
   </aside>
 
