@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formazione e AI Act: perché nessuno può certificare la conformità</title>
+<meta name="description" content="Il Digital Omnibus ha riscritto l'articolo 4 dell'AI Act sull'alfabetizzazione in materia di IA: da obbligo di risultato a obbligo di mezzi. Cosa cambia e perché nessuna 'certificazione AI Act' ha valore legale.">
+<link rel="canonical" href="https://aiactnavigator.it/blog/ai-act-formazione-certificazione.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI Act Navigator">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://aiactnavigator.it/blog/ai-act-formazione-certificazione.html">
+<meta property="og:title" content="Formazione e AI Act: perché nessuno può certificare la conformità">
+<meta property="og:description" content="Il Digital Omnibus ha riscritto l'articolo 4 dell'AI Act sull'alfabetizzazione in materia di IA: da obbligo di risultato a obbligo di mezzi. Cosa cambia e perché nessuna 'certificazione AI Act' ha valore legale.">
+<meta property="og:image" content="https://aiactnavigator.it/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="blog.css">
+<script>
+  window.POSTHOG_KEY  = "phc_ztKfsSiGTJtMEuhjNR8WUJCzQY9SNWQqMwgVBei7rF7u";   // Project API Key (EU)
+  window.POSTHOG_HOST = "https://eu.i.posthog.com";     // UE (usa https://us.i.posthog.com se il progetto è negli USA)
+  if (window.POSTHOG_KEY && window.POSTHOG_KEY.indexOf("<") === -1) {
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys getNextSurveyStep onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init(window.POSTHOG_KEY,{api_host:window.POSTHOG_HOST,persistence:"memory",capture_pageview:true});
+  }
+</script>
+</head>
+<body>
+<header class="site-head">
+  <a class="site-brand" href="/"><span class="dot"></span>AI Act Navigator</a>
+  <nav class="site-nav">
+    <a href="/">Home</a>
+    <a href="/blog/" class="is-active">Blog</a>
+  </nav>
+</header>
+<div class="article-shell">
+ <div class="article-grid">
+
+  <aside class="toc">
+    <div class="toc-label">In questo articolo</div>
+    <nav id="toc-nav">
+      <a href="#omnibus">Cosa cambia dal 27 luglio</a>
+      <a href="#confronto">Le due versioni a confronto</a>
+      <a href="#mezzi">Da risultato a mezzi</a>
+      <a href="#certificazione">Perché nessuno certifica</a>
+      <a href="#fermare">Fermare la formazione?</a>
+      <a href="#cosa-fare">Cosa fare davvero</a>
+    </nav>
+  </aside>
+
+  <article class="post">
+    <div class="post-kicker">Guida · AI Act</div>
+    <h1>Formazione e AI Act: perché nessuno può certificare la tua conformità</h1>
+    <div class="post-meta">Agosto 2026 · ~7 min di lettura</div>
+
+    <p class="lead">Da mesi circolano corsi "AI Act compliant" con tanto di certificato per "essere a norma entro il 2 agosto 2026". Il problema è semplice: non era possibile prima, ed è ancora meno possibile adesso. Il 27 luglio 2026 è entrato in vigore il Digital Omnibus, che ha riscritto proprio l'articolo 4 dell'AI Act — quello sull'alfabetizzazione in materia di IA. Vediamo cosa cambia e perché, su questo obbligo, la parola "certificazione" è fuori posto.</p>
+
+    <h2 id="omnibus">Cosa cambia dal 27 luglio</h2>
+    <p>Il <strong>Digital Omnibus sull'IA</strong> (Regolamento UE 2026/1744, pubblicato in Gazzetta ufficiale il 24 luglio 2026 e in vigore dal 27 luglio) è un intervento di semplificazione che ritocca l'AI Act in più punti. Attenzione a non confonderlo con un rinvio generale: gli <strong>obblighi di trasparenza dell'articolo 50 restano applicabili dal 2 agosto 2026</strong>. L'unica finestra transitoria riguarda la marcatura leggibile da macchina degli output dei sistemi generativi già immessi sul mercato prima del 2 agosto, prorogata al 2 dicembre 2026.</p>
+    <p>La modifica sostanziale, per tutte le aziende, riguarda invece l'<strong>articolo 4</strong> sull'alfabetizzazione in materia di IA — in vigore già dal 2 febbraio 2025 e valido per fornitori e deployer, quindi non solo per chi sviluppa sistemi, ma anche per chiunque li utilizzi.</p>
+
+    <h2 id="confronto">Le due versioni dell'articolo 4 a confronto</h2>
+    <p>Il modo più onesto per capire la portata della modifica è mettere i due testi uno accanto all'altro.</p>
+    <p><strong>Versione originaria</strong> (Reg. UE 2024/1689, applicabile dal 2 febbraio 2025):</p>
+    <p class="lawquote">«I fornitori e i deployer dei sistemi di IA adottano misure per garantire nella misura del possibile un livello sufficiente di alfabetizzazione in materia di IA del loro personale […], prendendo in considerazione le loro conoscenze tecniche, la loro esperienza, istruzione e formazione, nonché il contesto in cui i sistemi di IA devono essere utilizzati […]».</p>
+    <p><strong>Versione in vigore dal 27 luglio 2026</strong> (art. 4, par. 1, come sostituito dal Reg. UE 2026/1744):</p>
+    <p class="lawquote">«I fornitori e i deployer di sistemi di IA adottano misure volte a sostenere lo sviluppo dell'alfabetizzazione in materia di IA del loro personale […]. Tale obbligo non impone ai fornitori o ai deployer di garantire un livello specifico di alfabetizzazione in materia di IA per alcuna persona.»</p>
+    <p>Le differenze sono due. Cambia il <strong>verbo dell'obbligo</strong>: da «garantire un livello sufficiente» a «sostenere lo sviluppo». E viene aggiunta una frase che prima non c'era: l'obbligo non impone di garantire un livello specifico per nessuno. Il cuore della norma — i parametri di calibrazione su conoscenze, ruoli, esperienza e contesto — resta invece <strong>identico</strong>. È il dettaglio più importante: un percorso uguale per tutti non rispettava l'articolo 4 nel 2025 e non lo rispetta oggi.</p>
+
+    <h2 id="mezzi">Da obbligo di risultato a obbligo di mezzi</h2>
+    <p>Sembra una sfumatura linguistica, ma cambia l'oggetto stesso dell'obbligo. Prima le misure servivano a ottenere un <strong>esito</strong>: un livello di competenza effettivamente raggiunto dalle persone. Ora servono a mettere in atto un'<strong>attività</strong>: sostenere un percorso di crescita.</p>
+    <p>È la classica distinzione tra obbligazione di risultato e obbligazione di mezzi. Nella prima conti solo se il risultato arriva; nella seconda hai adempiuto se hai agito con diligenza secondo le regole, anche quando l'esito non è garantito. Fino al 26 luglio l'azienda doveva poter affermare che i collaboratori erano arrivati a un livello sufficiente; da oggi deve poter dire quali attività ha erogato, a quali ruoli e con quale criterio di calibrazione.</p>
+    <p>Da qui si spiega anche perché è sparito «nella misura del possibile»: era la mitigazione legata a «garantire» — un modo per riconoscere che nessuna azienda può assicurare che una persona impari. Tolto il verbo che imponeva un esito, quel temperamento non serve più. Il considerando 8 del nuovo regolamento chiarisce che la modifica nasce da ragioni di <strong>proporzionalità</strong>, perché obblighi troppo rigidi pesano soprattutto sulle imprese più piccole; e aggiunge che l'alfabetizzazione «dovrebbe essere una priorità strategica, indipendentemente dagli obblighi normativi e dalle possibili sanzioni».</p>
+
+    <h2 id="certificazione">Perché nessuno può certificare la formazione</h2>
+    <p>Torniamo ai corsi con "certificato di conformità". Il motivo per cui conviene diffidare è strutturale, non polemico.</p>
+    <ul>
+      <li><strong>Non esiste una soglia.</strong> Né la versione 2024 né quella 2026 dell'articolo 4 indicano durate, programmi o livelli minimi. Non c'è un parametro oggettivo che un ente possa "certificare".</li>
+      <li><strong>Lo dice l'Ufficio europeo per l'IA.</strong> Nel documento <em>AI Literacy — Questions &amp; Answers</em> (7 maggio 2025) si spiega che la valutazione del livello sufficiente è contestuale, va condotta caso per caso, e che le organizzazioni non sono tenute a far conseguire certificazioni formali né a sottoporre il personale a una valutazione formale delle conoscenze.</li>
+      <li><strong>Nemmeno la Commissione garantisce la conformità.</strong> Il <em>living repository</em> delle pratiche dei firmatari dell'AI Pact precisa che replicare quelle pratiche non concede automaticamente presunzione di conformità all'articolo 4, e che la pubblicazione non implica approvazione. Se non basta un esempio pubblicato dalla Commissione, difficilmente basta il timbro di un privato.</li>
+      <li><strong>Dal 27 luglio c'è un argomento in più.</strong> Se la norma dichiara espressamente che non serve garantire un livello specifico per alcuna persona, un attestato che certifica il livello raggiunto dal singolo dipendente misura proprio una grandezza che la legge considera irrilevante ai fini dell'adempimento. Non è inutile in assoluto, ma è fuori bersaglio.</li>
+    </ul>
+    <p>Traduzione pratica: qualunque offerta che prometta "conformità garantita" o una "certificazione ufficiale AI Act" sta vendendo qualcosa che, ad oggi, nessuno è in grado di rilasciare.</p>
+
+    <h2 id="fermare">Fermare la formazione è la mossa giusta?</h2>
+    <p>No, ed è l'errore opposto ma altrettanto grave. Chi ha letto la riscrittura come un "via libera" a fermare tutto ha guardato solo il verbo, non l'impianto della norma.</p>
+    <p>L'articolo 4 non ha mai avuto una sanzione propria dentro l'AI Act. Ma dal 2 agosto 2026 si applicano gli obblighi di trasparenza dell'articolo 50 con il regime sanzionatorio pieno: un contenuto generato dall'IA non dichiarato, o un assistente conversazionale che non dichiara di esserlo, sono violazioni sanzionabili. E chi commette questi errori, nella pratica, è quasi sempre una persona che non aveva chiaro il proprio ruolo, la norma o lo strumento che stava usando per conto dell'azienda. La formazione non è mai stata sanzionata direttamente, ma è la condizione per non incappare negli errori che invece lo sono. Allentare il presidio proprio ora significa ridurlo esattamente sul punto da cui arriva l'esposizione reale.</p>
+
+    <h2 id="cosa-fare">Cosa fare davvero</h2>
+    <p>La strada coerente con il nuovo testo non è "prendere un certificato", ma poter dimostrare misure adeguate e calibrate. In pratica:</p>
+    <ul>
+      <li><strong>Misura il punto di partenza</strong> con un assessment interno, distinto per ruoli: i parametri dell'articolo 4 si rispettano solo se prima li hai misurati.</li>
+      <li><strong>Progetta percorsi differenziati</strong>, non un corso identico per tutti: la calibrazione su ruoli, competenze e contesto è l'unica parte dell'obbligo rimasta invariata.</li>
+      <li><strong>Documenta le attività</strong> (programma, destinatari, criterio di calibrazione, materiali): è l'accountability, come nel GDPR. Non serve inviare nulla a un registro pubblico.</li>
+      <li><strong>Ripeti nel tempo.</strong> Ruoli, strumenti e rischi cambiano; l'alfabetizzazione è un percorso, non un evento singolo.</li>
+    </ul>
+
+    <hr>
+    <p class="post-outro">Anche nel suo preambolo l'AI Act ricorda che sviluppare le competenze dovrebbe essere una priorità strategica, a prescindere da obblighi e sanzioni. La domanda giusta, allora, non è "come mi certifico", ma: in questi mesi le persone hanno imparato a usare l'IA in modo consapevole, o solo a poter dimostrare di averlo fatto?</p>
+
+    <div class="post-cta">
+      <p>Vuoi sapere cosa devi fare nel tuo caso specifico?</p>
+      <a class="cta-btn" href="/">Prova lo strumento →</a>
+    </div>
+
+    <p class="dl-note" style="margin-top:26px">Riferimenti: Reg. UE 2024/1689 (AI Act), artt. 3 punto 56, 4, 50, 99; Reg. UE 2026/1744 (Digital Omnibus sull'IA), art. 1 e considerando 8, in vigore dal 27 luglio 2026; Ufficio europeo per l'IA, <em>AI Literacy — Q&amp;A</em> (7 maggio 2025) e <em>Living repository of AI literacy practices</em>. Contenuto informativo, non costituisce consulenza legale.</p>
+  </article>
+
+ </div>
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('#toc-nav a'));
+  var map = {};
+  links.forEach(function(a){ var id=a.getAttribute('href').slice(1); var el=document.getElementById(id); if(el) map[id]=a; });
+  var targets = Object.keys(map).map(function(id){ return document.getElementById(id); });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){ a.classList.remove('active'); });
+        var a = map[e.target.id]; if(a) a.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-88px 0px -70% 0px', threshold:0});
+  targets.forEach(function(t){ obs.observe(t); });
+})();
+</script>
+<footer class="site-foot">
+  <span>AI Act Navigator — strumento informativo, non consulenza legale.</span>
+  <span><a href="/">Torna allo strumento</a></span>
+</footer>
+</body>
+</html>
