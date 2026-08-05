@@ -170,6 +170,7 @@ a{color:inherit}
   <nav class="site-nav">
     <a href="/">Home</a>
     <a href="/blog/">Blog</a>
+    <a href="/newsletter/" class="is-active">Newsletter</a>
     <a href="/parlano/">Rassegna</a>
   </nav>
 </header>
@@ -185,6 +186,7 @@ a{color:inherit}
 
   <form class="nl-form" id="nlForm" novalidate>
     <input type="email" id="nlEmail" name="email" placeholder="Inserisci la tua email" required aria-label="La tua email" autocomplete="email">
+    <input type="text" id="nlHp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
     <button type="submit" id="nlBtn">Iscriviti</button>
   </form>
   <div class="nl-ok" id="nlOk" role="status" aria-live="polite" hidden>
@@ -201,10 +203,12 @@ a{color:inherit}
     var f=document.getElementById('nlForm'), inp=document.getElementById('nlEmail'),
         btn=document.getElementById('nlBtn'), ok=document.getElementById('nlOk'), cons=document.getElementById('nlConsent');
     function valid(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+    var TOKEN="sgn_2f7a91x", t0=Date.now(), hp=document.getElementById('nlHp');
     f.addEventListener('submit', function(ev){
       ev.preventDefault();
       var email=inp.value.trim();
       if(!valid(email)){ inp.classList.add('err'); inp.focus(); return; }
+      var hpv=hp?hp.value:''; var el=Date.now()-t0;
       inp.classList.remove('err'); btn.disabled=true; btn.textContent='...';
       var done=function(){
         f.hidden=true; cons.hidden=true; ok.hidden=false;
@@ -212,8 +216,9 @@ a{color:inherit}
         if(art && art.getAttribute('data-ready')==='1'){ art.hidden=false; }
         try{ if(window.posthog) posthog.capture('nl_subscribe'); }catch(e){}
       };
+      if(hpv){ done(); return; }
       if(ENDPOINT && ENDPOINT.indexOf('http')===0){
-        fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:'email='+encodeURIComponent(email)+'&source=newsletter'}).finally(done);
+        fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:'email='+encodeURIComponent(email)+'&source=newsletter&token='+TOKEN+'&hp='+encodeURIComponent(hpv)+'&t='+el}).finally(done);
       } else { done(); }
     });
     inp.addEventListener('input',function(){ inp.classList.remove('err'); });
