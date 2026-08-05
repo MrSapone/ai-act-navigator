@@ -365,12 +365,14 @@
 <body>
 <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Apri menu"><span></span><span></span><span></span></button>
 <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a class="mm-item" href="/">Home</a>
   <a class="mm-item" href="/blog/">Blog</a>
+  <a class="mm-item" href="/newsletter/">Newsletter</a>
+  <a class="mm-item" href="/parlano/">Rassegna</a>
   <button class="mm-item" onclick="menuOpen('refModal')">Riferimenti rapidi: sanzioni e date chiave</button>
   <button class="mm-item" onclick="menuOpen('creditsModal')">Credits</button>
   <button class="mm-item" onclick="menuOpen('privacyModal')">Privacy</button>
   <button class="mm-item" onclick="menuOpen('contribModal')">Vuoi aiutarmi a migliorare il sito?</button>
-  <a class="mm-item" href="/parlano/">Rassegna</a>
   <div class="mm-sponsor">
     <p class="sponsor-title">Sponsor del progetto</p>
     <div class="sponsor-row">
@@ -1002,6 +1004,15 @@ document.addEventListener("keydown",e=>{
 });
 
 render();
+
+/* apertura popup da link esterni: /?m=ref|credits|privacy|contrib */
+(function(){
+  try{
+    var m=new URLSearchParams(location.search).get("m"); if(!m) return;
+    var map={ref:"refModal",credits:"creditsModal",privacy:"privacyModal",contrib:"contribModal"};
+    if(map[m]){ setTimeout(function(){ openModal(map[m]); }, 60); }
+  }catch(e){}
+})();
 </script>
 </body>
 </html>
