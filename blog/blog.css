@@ -75,6 +75,12 @@ a{color:inherit}
 .dl-btn svg{width:16px;height:16px;color:var(--accent);flex:none}
 .dl-note{font-size:12.5px;color:var(--muted-2);margin:0 0 22px}
 .post .lawquote{border-left:3px solid var(--line-2);padding:4px 0 4px 16px;margin:0 0 18px;color:#3a3a37;font-size:15px;line-height:1.65}
+.nl-cta{max-width:720px;margin:28px auto 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px 26px}
+.nl-cta-txt{font-size:15.5px;font-weight:600;color:var(--txt);line-height:1.4}
+.nl-cta-txt span{display:block;font-weight:400;color:var(--muted);font-size:13.5px;margin-top:3px}
+.nl-cta a{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 20px;border-radius:999px;white-space:nowrap;transition:.15s;border-bottom:none}
+.nl-cta a:hover{background:#e24a0f;color:#fff}
+@media(max-width:560px){.nl-cta{flex-direction:column;align-items:stretch;text-align:center}}
 .post-outro{font-size:15.5px;line-height:1.7;color:var(--muted);font-style:italic}
 .post-cta{margin-top:40px;padding:26px 28px;background:var(--panel);border:1px solid var(--line);border-radius:18px;
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
