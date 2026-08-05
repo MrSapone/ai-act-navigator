@@ -135,7 +135,7 @@
   if(!btn||!ft||!('IntersectionObserver' in window)) return;
   new IntersectionObserver(function(es){
     es.forEach(function(e){
-      btn.style.bottom = e.isIntersecting ? (Math.round(e.target.getBoundingClientRect().height)+16)+'px' : '';
+      btn.style.bottom = e.isIntersecting ? (Math.round(e.target.getBoundingClientRect().height)+16)+'px' : ''; btn.classList.toggle('at-end', e.isIntersecting);
     });
   },{threshold:0}).observe(ft);
 })();
