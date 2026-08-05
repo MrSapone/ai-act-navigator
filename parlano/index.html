@@ -173,6 +173,41 @@ a{color:inherit}
   @media(max-width:960px){.mentions{column-count:2}}
   @media(max-width:600px){.mentions{column-count:1}}
 
+
+  .ham{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;border:1px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;padding:0 10px;flex:none}
+  .ham span{display:block;height:2px;width:100%;background:var(--txt);border-radius:2px;transition:.2s}
+  .ham.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .ham.is-open span:nth-child(2){opacity:0}
+  .ham.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mnav{display:none}
+  @media(max-width:680px){
+    .site-nav{display:none}
+    .ham{display:flex;position:fixed;top:13px;right:16px;z-index:130}
+    .mnav{display:block;position:fixed;top:0;left:0;right:0;z-index:120;background:#fff;border-bottom:1px solid var(--line);padding:72px 22px 22px;transform:translateY(-112%);transition:transform .26s ease;box-shadow:0 14px 34px rgba(24,22,18,.14)}
+    .mnav.open{transform:translateY(0)}
+    .mnav a{display:block;padding:14px 6px;font-size:16px;font-weight:600;color:var(--txt);text-decoration:none;border-bottom:1px solid var(--line)}
+    .mnav a:last-child{border-bottom:none}
+  }
+
+  .hamburger{display:none}
+  .mobile-menu{display:none}
+  @media(max-width:680px){
+    .site-nav{display:none}
+    .hamburger{display:flex;flex-direction:column;justify-content:center;gap:5px;position:fixed;top:14px;right:14px;z-index:120;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;padding:0 11px}
+    .hamburger span{display:block;height:2px;width:100%;background:var(--txt);border-radius:2px;transition:.2s}
+    .hamburger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.is-open span:nth-child(2){opacity:0}
+    .hamburger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:block;position:fixed;top:0;left:0;right:0;z-index:110;background:#fff;border-bottom:1px solid var(--line);padding:74px 20px 24px;transform:translateY(-108%);transition:transform .26s ease;box-shadow:0 14px 34px rgba(24,22,18,.14);max-height:100vh;overflow:auto}
+    .mobile-menu.open{transform:translateY(0)}
+    .mm-item{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 16px;margin-bottom:10px;font-family:inherit;font-size:15px;font-weight:600;color:var(--txt);cursor:pointer;transition:.15s;text-decoration:none}
+    .mm-item:hover{border-color:var(--accent)}
+    .mm-sponsor{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+    .mm-sponsor .sponsor-title{margin:0 0 12px;font-size:15px;font-weight:700;letter-spacing:-.01em;color:var(--txt)}
+    .mm-sponsor .sponsor-row{display:flex;gap:12px;flex-wrap:wrap}
+    .mm-sponsor .sponsor-card{display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;height:78px;box-sizing:border-box;text-decoration:none}
+    .mm-sponsor .sponsor-card img{display:block;max-height:48px;width:auto}
+  }
 </style>
 <script>
   window.POSTHOG_KEY  = "phc_ztKfsSiGTJtMEuhjNR8WUJCzQY9SNWQqMwgVBei7rF7u";   // Project API Key (EU)
@@ -192,7 +227,25 @@ a{color:inherit}
     <a href="/newsletter/">Newsletter</a>
     <a href="/parlano/" class="is-active">Rassegna</a>
   </nav>
+  <button class="hamburger" id="hamburger" aria-label="Apri menu" onclick="var m=document.getElementById('mobileMenu');var o=!m.classList.contains('open');m.classList.toggle('open',o);this.classList.toggle('is-open',o);m.setAttribute('aria-hidden',!o);document.body.style.overflow=o?'hidden':''"><span></span><span></span><span></span></button>
 </header>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a class="mm-item" href="/">Home</a>
+  <a class="mm-item" href="/blog/">Blog</a>
+  <a class="mm-item" href="/newsletter/">Newsletter</a>
+  <a class="mm-item" href="/parlano/">Rassegna</a>
+  <a class="mm-item" href="/?m=ref">Riferimenti rapidi: sanzioni e date chiave</a>
+  <a class="mm-item" href="/?m=credits">Credits</a>
+  <a class="mm-item" href="/?m=privacy">Privacy</a>
+  <a class="mm-item" href="/?m=contrib">Vuoi aiutarmi a migliorare il sito?</a>
+  <div class="mm-sponsor">
+    <p class="sponsor-title">Sponsor del progetto</p>
+    <div class="sponsor-row">
+      <a class="sponsor-card" href="https://www.ansmm.it/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored"><img src="/sponsor-ansmm.png" alt="ANSMM — Associazione Nazionale Social Media Manager"></a>
+      <a class="sponsor-card" href="https://www.ots-web.com/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored"><img src="/sponsor-ots.png" alt="OTS"></a>
+    </div>
+  </div>
+</nav>
 
 <div class="rassegna-shell">
   <div class="rassegna-hero">
