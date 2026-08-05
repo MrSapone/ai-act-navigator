@@ -33,7 +33,25 @@
     <a href="/newsletter/">Newsletter</a>
     <a href="/parlano/">Rassegna</a>
   </nav>
+  <button class="hamburger" id="hamburger" aria-label="Apri menu" onclick="var m=document.getElementById('mobileMenu');var o=!m.classList.contains('open');m.classList.toggle('open',o);this.classList.toggle('is-open',o);m.setAttribute('aria-hidden',!o);document.body.style.overflow=o?'hidden':''"><span></span><span></span><span></span></button>
 </header>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a class="mm-item" href="/">Home</a>
+  <a class="mm-item" href="/blog/">Blog</a>
+  <a class="mm-item" href="/newsletter/">Newsletter</a>
+  <a class="mm-item" href="/parlano/">Rassegna</a>
+  <a class="mm-item" href="/?m=ref">Riferimenti rapidi: sanzioni e date chiave</a>
+  <a class="mm-item" href="/?m=credits">Credits</a>
+  <a class="mm-item" href="/?m=privacy">Privacy</a>
+  <a class="mm-item" href="/?m=contrib">Vuoi aiutarmi a migliorare il sito?</a>
+  <div class="mm-sponsor">
+    <p class="sponsor-title">Sponsor del progetto</p>
+    <div class="sponsor-row">
+      <a class="sponsor-card" href="https://www.ansmm.it/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored"><img src="/sponsor-ansmm.png" alt="ANSMM — Associazione Nazionale Social Media Manager"></a>
+      <a class="sponsor-card" href="https://www.ots-web.com/?utm_source=aiactnavigator.it&utm_medium=referral&utm_campaign=sponsor" target="_blank" rel="noopener sponsored"><img src="/sponsor-ots.png" alt="OTS"></a>
+    </div>
+  </div>
+</nav>
 <div class="blog-head">
   <h1>Blog</h1>
   <p>Guide pratiche e aggiornamenti sull'AI Act e sugli obblighi di trasparenza per chi usa l'intelligenza artificiale al lavoro.</p>
