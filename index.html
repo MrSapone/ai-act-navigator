@@ -267,6 +267,9 @@
   .action-sm{margin-top:12px}
   .pill-sm{font-size:12.5px;padding:9px 15px;gap:7px}
   .pill-sm .ext{font-size:13px}
+  .side-cta{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:12px 18px;border-radius:999px;box-shadow:0 8px 22px rgba(255,91,26,.28);transition:.15s}
+  .side-cta:hover{background:var(--orange)}
+  .side-cta .ext{color:#fff;font-size:14px}
   a.mm-item{text-decoration:none}
 
   /* ---------- footer sidebar (voci testuali) ---------- */
@@ -322,7 +325,7 @@
     .side-top .badge{margin:0 auto}
     .subtitle{margin-left:auto;margin-right:auto}
     /* secondari spostati nel menu hamburger */
-    .sources,.rule,.ref-trigger,.action-row,.side-bottom,.sponsor-side{display:none}
+    .sources,.rule,.ref-trigger,.action-row,.side-cta,.side-bottom,.sponsor-side{display:none}
 
     /* sponsor nel menu mobile */
     .mm-sponsor{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
@@ -408,6 +411,7 @@
   <div class="action-row action-sm">
     <a class="pill-btn pill-sm" href="/parlano/"><span>Parlano di AI Act Navigator</span><span class="ext">↗</span></a>
   </div>
+  <a class="side-cta" href="/newsletter/"><span>Ricevi un avviso quando l'AI Act cambia</span><span class="ext">↗</span></a>
     <button class="scroll-cue" onclick="scrollToFlow()" aria-label="Rispondi alle domande">
       <span>Rispondi alle domande</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
