@@ -1018,5 +1018,48 @@ render();
   }catch(e){}
 })();
 </script>
+<!-- SEGNALE popup automatico (dopo 40s, una sola volta) -->
+<div class="sgnl-pop" id="sgnlPop" aria-hidden="true">
+  <button class="sgnl-x" onclick="sgnlClose()" aria-label="Chiudi">✕</button>
+  <div class="sgnl-card" role="dialog" aria-modal="true" aria-label="Iscriviti alla newsletter">
+    <p class="sgnl-kick">LA NEWSLETTER</p>
+    <h2 class="sgnl-title">SEGNALE</h2>
+    <p class="sgnl-by">di <span class="sgnl-dot"></span> AI Act Navigator</p>
+    <p class="sgnl-lead">Poche email, zero spam. Ti scrivo <b>solo quando l'AI Act cambia davvero</b>: cosa è cambiato, cosa devi fare e cosa rischi — spiegato in due minuti, senza allarmismi e senza fuffa.</p>
+    <p class="sgnl-sub">Per chi usa l'AI al lavoro e non vuole sorprese.</p>
+    <a class="sgnl-cta" href="/newsletter/">Iscriviti alla newsletter <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+<style>
+  .sgnl-pop{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(24,22,18,.55);backdrop-filter:blur(3px);font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+  .sgnl-pop.show{display:flex;animation:sgnlOv .25s ease}
+  @keyframes sgnlOv{from{opacity:0}to{opacity:1}}
+  .sgnl-card{position:relative;background:#fff;border-radius:22px;width:100%;max-width:560px;padding:44px 40px 40px;text-align:center;box-shadow:0 30px 80px rgba(24,22,18,.35);animation:sgnlIn .28s ease}
+  @keyframes sgnlIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+  .sgnl-x{position:absolute;top:-44px;right:0;z-index:1;background:transparent;border:0;color:#fff;font-size:30px;line-height:1;cursor:pointer;font-family:inherit;opacity:.9}
+  .sgnl-x:hover{opacity:1}
+  .sgnl-kick{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.18em;color:#9a988f}
+  .sgnl-title{margin:0;font-size:clamp(48px,9vw,84px);font-weight:800;letter-spacing:-.03em;line-height:.95;color:#181817}
+  .sgnl-by{margin:16px 0 0;font-size:17px;font-weight:800;letter-spacing:-.01em;color:#181817;display:flex;align-items:center;justify-content:center;gap:8px}
+  .sgnl-dot{width:9px;height:9px;border-radius:50%;background:#ff5b1a;display:inline-block}
+  .sgnl-lead{max-width:440px;margin:22px auto 0;font-size:15.5px;line-height:1.6;color:#77756e}
+  .sgnl-lead b{color:#181817}
+  .sgnl-sub{margin:16px 0 0;font-size:13.5px;color:#9a988f}
+  .sgnl-cta{display:inline-flex;align-items:center;gap:8px;margin-top:26px;background:#ff5b1a;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:15px 28px;border-radius:999px;box-shadow:0 10px 26px rgba(255,91,26,.32);transition:.15s}
+  .sgnl-cta:hover{background:#e24a0f}
+  @media(max-width:560px){.sgnl-card{padding:40px 22px 30px}.sgnl-x{top:10px;right:14px;font-size:24px}}
+</style>
+<script>
+(function(){
+  try{ if(localStorage.getItem('sgnl_seen')) return; }catch(e){}
+  var shown=false;
+  window.sgnlClose=function(){var p=document.getElementById('sgnlPop');if(!p)return;p.classList.remove('show');p.setAttribute('aria-hidden','true');document.body.style.overflow='';};
+  function show(){if(shown)return;shown=true;var p=document.getElementById('sgnlPop');if(!p)return;p.classList.add('show');p.setAttribute('aria-hidden','false');try{localStorage.setItem('sgnl_seen','1');}catch(e){}}
+  setTimeout(show,40000);
+  var pop=document.getElementById('sgnlPop');
+  if(pop)pop.addEventListener('click',function(e){if(e.target===this)window.sgnlClose();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')window.sgnlClose();});
+})();
+</script>
 </body>
 </html>
