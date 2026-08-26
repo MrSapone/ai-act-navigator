@@ -460,10 +460,12 @@
         <div class="col">
           <div class="modal-sub">Date chiave</div>
           <div class="dates">
-            <div><b>2 febbraio 2025</b> — In vigore i divieti (art. 5) e gli obblighi di alfabetizzazione AI.</div>
+            <div><b>2 febbraio 2025</b> — In vigore i divieti (art. 5) e gli obblighi di alfabetizzazione AI (art. 4).</div>
             <div><b>2 agosto 2025</b> — Applicabili le sanzioni (art. 99) e gli obblighi sui modelli GPAI.</div>
-            <div><b>2 agosto 2026</b> — Diventano applicabili gli obblighi di trasparenza dell'art. 50 e il regime pieno per i sistemi ad alto rischio.</div>
-            <div><b>2 dicembre 2026</b> — Fine del breve periodo di grazia per la marcatura dei sistemi già sul mercato prima del 2 agosto 2026 (solo art. 50(2)). I contenuti creati prima del 2 agosto 2026 non vanno etichettati retroattivamente.</div>
+            <div><b>2 agosto 2026</b> — Diventano applicabili gli obblighi di trasparenza dell'art. 50.</div>
+            <div><b>2 dicembre 2026</b> — Fine del periodo di grazia per la marcatura leggibile da macchina dei sistemi generativi già sul mercato prima del 2 agosto 2026 (art. 50(2); i contenuti creati prima non vanno etichettati retroattivamente). Dallo stesso giorno, per il Digital Omnibus, scattano due nuovi divieti assoluti: deepfake sessuali non consensuali e materiale pedopornografico generati con l'AI.</div>
+            <div><b>2 dicembre 2027</b> — Regime pieno per i sistemi ad alto rischio "autonomi" (Annex III): rinviato dal Digital Omnibus (era previsto per il 2 agosto 2026).</div>
+            <div><b>2 agosto 2028</b> — Regime pieno per i sistemi ad alto rischio integrati in prodotti già regolati da normative settoriali UE (Annex I).</div>
           </div>
         </div>
       </div>
@@ -584,12 +586,13 @@ const NODES = {
   },
   text:{
     kicker:"Contenuto testuale",
-    q:"A cosa serve il testo generato dall'AI?",
-    help:"L'obbligo per chi pubblica scatta solo per testi che informano il pubblico su temi di interesse pubblico.",
+    q:"Che cosa fai con l'AI sul testo?",
+    help:"Tradurre o correggere un testo scritto da una persona è 'editing standard' e non richiede dichiarazione. L'obbligo per chi pubblica scatta solo per testi generati dall'AI che informano il pubblico su temi di interesse pubblico.",
     options:[
-      {label:"Informa il pubblico su temi di interesse pubblico", sub:"Politica, salute, sicurezza, diritti, economia, cronaca, scienza — SENZA revisione umana responsabile", to:"out_text_public"},
+      {label:"Lo genero con l'AI e informa il pubblico su temi di interesse pubblico", sub:"Politica, salute, sicurezza, diritti, economia, cronaca, scienza — SENZA revisione umana responsabile", to:"out_text_public"},
       {label:"Interesse pubblico, MA con revisione editoriale", sub:"Un responsabile esamina e approva la sostanza, con responsabilità editoriale", to:"out_text_reviewed"},
-      {label:"Copy marketing, prodotto, social, email", sub:"Testi promozionali o interni, non 'interesse pubblico'", to:"out_text_marketing"}
+      {label:"Copy marketing, prodotto, social, email", sub:"Testi promozionali o interni, non 'interesse pubblico'", to:"out_text_marketing"},
+      {label:"Traduco o correggo un testo scritto da una persona", sub:"Traduzione automatica, ortografia, grammatica, ritocchi minori — il significato resta lo stesso", to:"out_text_editing"}
     ]
   },
 
@@ -753,6 +756,19 @@ const NODES = {
     sanction:null
   }},
 
+  out_text_editing:{outcome:{
+    type:"green", verdict:"Editing standard — nessun obbligo",
+    title:"Traduzione o correzione: è editing standard",
+    summary:"Tradurre con l'AI un testo scritto da una persona, o correggerne ortografia e grammatica, è considerato 'editing standard': l'AI non altera la sostanza né il significato. Le Linee guida della Commissione (20 luglio 2026) lo fanno rientrare nell'eccezione dell'art. 50(2), quindi non c'è obbligo di marcare il testo come artificiale.",
+    actions:[
+      "Nessuna dichiarazione obbligatoria per traduzioni, correzioni ortografiche/grammaticali o ritocchi stilistici minori che non cambiano il significato.",
+      "<b>Attenzione al confine:</b> riassunti, sintesi e riscritture sostanziali fatte con l'AI NON sono editing standard — lì il testo è 'generato' e si torna alla domanda precedente.",
+      "La marcatura tecnica dell'output resta comunque a carico del fornitore del tool (art. 50(2))."
+    ],
+    ref:"AI Act art. 50(2) — Linee guida Commissione UE del 20/07/2026 (traduzione ed editing standard)",
+    sanction:null
+  }},
+
   out_chatbot:{outcome:{
     type:"yellow", verdict:"Obbligo di informare",
     title:"Chatbot / assistente AI — dichiara che è un'AI",
@@ -822,7 +838,7 @@ const NODES = {
     ],
     ref:"AI Act — Annex III (alto rischio, occupazione/HR) + art. 5 (usi vietati)",
     sanction:"15 mln € o 3% (alto rischio) · fino a 35 mln € o 7% per gli usi vietati",
-    legal:"Il regime pieno per l'alto rischio è applicabile dal <b>2 agosto 2026</b>. Data la complessità, fatti seguire da un legale."
+    legal:"Il regime pieno per l'alto rischio (Annex III) è stato rinviato dal Digital Omnibus: si applica dal <b>2 dicembre 2027</b> (2 agosto 2028 se il sistema è integrato in prodotti già regolati). Data la complessità, fatti seguire da un legale fin da ora."
   }},
 
   out_highrisk:{outcome:{
@@ -838,7 +854,7 @@ const NODES = {
     ],
     ref:"AI Act — Annex III / Capo III (sistemi ad alto rischio)",
     sanction:"15 mln € o 3% del fatturato mondiale annuo",
-    legal:"Regime pieno applicabile dal <b>2 agosto 2026</b>. È l'area più onerosa dell'AI Act dopo i divieti: valutazione legale consigliata."
+    legal:"Il regime pieno per l'alto rischio (Annex III) è stato rinviato dal Digital Omnibus al <b>2 dicembre 2027</b> (2 agosto 2028 per l'AI integrata in prodotti già regolati). È l'area più onerosa dell'AI Act dopo i divieti: valutazione legale consigliata."
   }},
 
   out_prohibited_generic:{outcome:{
